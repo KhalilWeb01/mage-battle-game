@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magic Battle</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <div id="background-video">
+    <video autoplay muted loop>
+      <source src="assets/bg_/MainBg.mp4" type="video/mp4">
+       </video>
+  </div>
+  <audio id="menu-music" autoplay loop>
+    <source src="assets/music/Menu.mp3" type="audio/mpeg">
+
+  </audio>
+
+  <div id="menu">
+    <h2>Magic Battle</h2>
+    <button id="play-button"></button>
+    <button id="settings-button"></button>
+    <button id="exit-button"></button>
+  </div>
+
+  <div id="game-area" style="display: none;">
+    <div id="game-mode-selection" 
+    style="display: none;">
+      <h2>Выберите режим игры</h2>
+      <button id="one-vs-one-button">1 на 1</button>
+      <button id="mode-2v2">2 на 2</button>
+      <button id="mode-4v4">4 на 4</button>
+      <button id="back-to-menu">Назад</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

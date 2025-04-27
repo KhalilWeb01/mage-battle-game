@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Загрузка Magic Battle...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: url('assets/bg_/Loading.mp4') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: white;
+      font-family: 'Cinzel Decorative', cursive;
+
+    }
+
+    .loader {
+      text-align: center;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .loader h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px #0ff;
+    }
+
+    .magic-ring {
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      border-top: 5px solid #00ffff;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      margin: auto;
+      animation: spin 1.2s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+    <div id="background-video">
+        <video autoplay muted loop>
+          <source src="assets/bg_/Loading.mp4" type="video/mp4">
+           </video>
+      </div>
+  <div class="loader">
+    <h1>Загрузка магии...</h1>
+    
+  </div>
+
+  <script>
+    setTimeout(() => {
+      window.location.href = "game1.html";
+    }, 8000); // ⏳ через 3 секунды
+  </script>
+</body>
+</html>

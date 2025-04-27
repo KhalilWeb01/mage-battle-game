@@ -1,0 +1,177 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif; /* Основной шрифт */
+}
+
+#background-video {
+    position: fixed; /* 👈 Фиксируем к окну */
+    top: 0;
+    left: 0;
+    width: 100vw;     /* ширина экрана */
+    height: 100vh;    /* высота экрана */
+    overflow: hidden;
+    z-index: -1;      /* Отправляем на задний план */
+
+}
+
+video {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 🔥 Чтобы видео полностью покрывало блок */
+}
+
+#menu {
+    position: relative;
+    z-index: 1; /* Поднять меню выше видео */
+    text-align: center;
+    margin-top: 20%;
+}
+
+h2 {
+    font-family: 'Cinzel Decorative', cursive;
+
+    font-size: 48px; /* Размер шрифта заголовка */
+    color: #fff; /* Цвет шрифта */
+    animation: neon 10s ease-in-out infinite; /* Применение анимации */
+}
+
+@keyframes neon {
+    0% {
+        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #ff00ff;
+        color: #fff; /* Белый цвет для начальной точки */
+    }
+    25% {
+        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff, 0 0 20px #00ffff;
+        color: #fff; /* Белый цвет для 25% */
+    }
+    50% {
+        text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #00ff00;
+        color: #fff; /* Белый цвет для 50% */
+    }
+    75% {
+        text-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00, 0 0 15px #ffff00, 0 0 20px #ffff00;
+        color: #fff; /* Белый цвет для 75% */
+    }
+    100% {
+        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #ff00ff;
+        color: #fff; /* Белый цвет для 100% */
+    }
+}
+
+
+button {
+    display: block;
+    margin: 15px auto; /* Центрировать кнопки */
+    padding: 15px 30px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон */
+    color: #333; /* Цвет текста */
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: scale(1.05); /* Увеличение кнопки при наведении */
+}
+
+#menu{
+    top: -200px;
+}
+#play-button {
+    background-image: url(assets/UI/Play_Button.png);
+    background-position: center;
+    background-size: cover;
+    background-color: transparent; /* Добавлено для предотвращения появления фона */
+    width: 180px;
+    height: 150px;
+    position: absolute;
+    top: 410px;
+    right: 43%;
+}
+
+#settings-button{
+    background-image: url(assets/UI/Settings_Button.png);
+    background-position: center;
+    background-size: cover;
+    background-color: transparent; /* Добавлено для предотвращения появления фона */
+    width: 180px;
+    height: 150px;
+    position: absolute;
+    top: 430px;
+    right: 27%;
+
+}
+#exit-button{
+    background-image: url(assets/UI/Shop_Button.png);
+    background-position: center;
+    background-size: cover;
+    background-color: transparent; /* Добавлено для предотвращения появления фона */
+    width: 180px;
+    height: 150px;
+    position: absolute;
+    top: 430px;
+    right: 59%;
+    
+}
+#back-to-menu{
+    background-image: url(assets/UI/Back.png);
+    background-position: center;
+    background-size: cover;
+    background-color: transparent; /* Добавлено для предотвращения появления фона */
+    width: 200px;
+    height: 50px;
+    display: block;
+    flex-wrap: wrap;
+    
+}
+#game-mode-selection{
+    margin-top: 200px;
+    text-align: center;
+
+
+}
+
+#one-vs-one-button{
+    background-image: url(assets/UI/1vs1.png);
+    background-position: center;
+    background-size: cover;
+    background-color: transparent; /* Добавлено для предотвращения появления фона */
+    width: 200px;
+    height: 50px;
+}
+#mode-2v2{
+        background-image: url(assets/UI/2vs2.png);
+    background-position: center;
+    background-size: cover;
+    background-color: transparent; /* Добавлено для предотвращения появления фона */
+    width: 200px;
+    height: 50px;
+}
+#mode-4v4{
+        background-image: url(assets/UI/4vs4.png);
+    background-position: center;
+    background-size: cover;
+    background-color: transparent; /* Добавлено для предотвращения появления фона */
+    width: 200px;
+    height: 50px;
+}
+.card {
+    width: 100px;
+    height: 150px;
+    position: absolute;
+    transition: all 0.5s ease;
+  }
+  
+  .field {
+    position: relative;
+    width: 100%;
+    height: 300px;
+  }
+  

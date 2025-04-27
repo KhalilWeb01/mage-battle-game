@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magic Battle - 1 на 1</title>
+  <link rel="stylesheet" href="game1.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.2.4/pixi.min.js"></script>
+</head>
+
+<body>
+  <!-- Видео-фон -->
+  <div id="background-video">
+    <video autoplay muted loop>
+      <source src="assets/bg_/gamebg.mp4" type="video/mp4">
+    </video>
+  </div>
+  <audio id="menu-music" autoplay loop>
+    <source src="assets/music/Menu.mp3" type="audio/mpeg">
+
+  </audio>
+
+  <div class="box">
+    <!-- начало сцены  -->
+    <div id="vs-scene" style="display:none; opacity: 0;">
+      <div class="battle-side left-side">
+        <div class="gradient-left"></div>
+        <div id="player-mage" class="battle-mage"></div>
+      </div>
+      <div class="battle-side right-side">
+        <div class="gradient-right"></div>
+        <div id="bot-mage" class="battle-mage"></div>
+      </div>
+      <div class="vs-text">VS</div>
+    </div>
+    <!--  конец-->
+
+    <div id="game-container">
+      <div id="choose-area"></div>
+      <div id="bot-area"></div>
+      <div id="player-area"></div>
+
+      <div id="spellModal" class="spell-modal">
+        <div class="modal-content">
+          <span class="close-btn">&times;</span>
+          <img id="spellImage" class="spell-image" alt="Spell Image">
+          <h2 id="spellName">Spell Name</h2>
+          <p id="spellDescription">Description of the spell...</p>
+          <p><strong>Damage:</strong> <span id="spellDamage">50</span></p>
+          <p><strong>Mana Cost:</strong> <span id="spellManaCost">10</span></p>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div id="bot-mag"></div>
+    <div id="player-mag"></div>
+    
+    
+  </div>
+
+  <!-- Подключение Firebase и загрузка карточек -->
+  <script type="module" src="firebase-config.js"></script>
+  <!-- <script type="module" src="upload-mages.js"></script> -->
+  <script type="module" src="game.js"></script>
+  <!-- <script type="module" src="play.js"></script> -->
+
+
+</body>
+
+</html>
