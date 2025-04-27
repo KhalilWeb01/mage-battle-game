@@ -1,0 +1,376 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    position: relative;
+  }
+
+#background-video {
+    position: fixed; /* 👈 Фиксируем к окну */
+    top: 0;
+    left: 0;
+    width: 100vw;     /* ширина экрана */
+    height: 100vh;    /* высота экрана */
+    overflow: hidden;
+    z-index: -1;      /* Отправляем на задний план */
+
+}
+
+video {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 🔥 Чтобы видео полностью покрывало блок */
+}
+
+.box{
+
+    width: 1520px;
+    height: 600px;
+    /* border: 3px solid #0d00ff; */
+    /* box-shadow: 0 0 40px rgba(0, 255, 255, 0.3); */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+/* Стиль для body — фон игры */
+  
+  /* Игровая зона */
+  #game-container {
+    width: 520px;
+    height: 520px;
+    /* border: 3px solid #00ffff; светящаяся рамка */
+    /* box-shadow: 0 0 40px rgba(0, 255, 255, 0.3); */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  /* Адаптив: масштабировать, не ломая размер */
+  @media (max-width: 1280px) {
+    #game-area {
+      transform: scale(0.9);
+    }
+  }
+  @media (max-width: 1100px) {
+    #game-area {
+      transform: scale(0.8);
+    }
+  }
+  @media (max-width: 900px) {
+    #game-area {
+      transform: scale(0.7);
+    }
+  }
+  #choose-area {
+    width: 420px;
+    height: 420px;
+    /* border: 3px solid #99ff00; */
+    /* box-shadow: 0 0 40px rgba(0, 255, 255, 0.3); */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+  padding: 100px;
+  }
+  
+  #player-area {
+    width: 420px;
+    height: 120px;
+    /* border: 3px solid #00aefffc; светящаяся рамка */
+    /* box-shadow: 0 0 40px rgba(0, 255, 255, 0.3); */
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom: 10px;
+  }
+  
+  #bot-area {
+    top: 1px;
+    width: 420px;
+    height: 120px;
+    /* border: 3px solid #ff0000fc;  */
+   
+    position: absolute;
+    display: flex;
+    justify-content: center;
+  }
+  
+#player-mag {
+        width: 120px;
+        height: 150px;
+    
+        position: absolute;
+        left: 100px;
+        bottom: 50px;
+    }
+  
+  #bot-mag {
+    width: 120px;
+    height: 150px;
+    position: absolute;
+    top: 60px;
+    right: 110px;
+  }
+  .element-card{
+    width: 80px;  /* Слегка уменьшил размер для лучшего размещения */
+    height: 120px;
+    border-radius: 8px;
+    margin: 10px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  img{
+    width: 120px;
+    height: 140px;
+  }
+  .mage{
+    width: 220px;
+    height: 250px;
+  }
+  
+  /* Добавим плавную анимацию перемещения */
+  .card {
+    position: absolute;
+    transition: transform 1s ease-in-out;
+  }
+  
+  .choose-mag {
+    color: white;
+    /* padding: 8px 12px; */
+    border-radius: 8px;
+    cursor: pointer;
+    
+  }
+  .mage-card{
+    margin: -5px 10px;
+    
+    animation: glowEffect 5s infinite;
+    transition: 0.5s;
+  }
+  
+ .mage-card:hover {
+    transform: scale(1.25);  /* Небольшой эффект при наведении */
+    transition: 0.9s;
+  }
+
+.choose-mag:hover {
+    background: #1c86ee;
+}
+@keyframes glowEffect {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Начальное свечение */
+    }
+    25% {
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /* Красное свечение */
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.8); /* Зеленое свечение */
+    }
+    75% {
+        box-shadow: 0 0 20px rgba(0, 0, 255, 0.8); /* Синее свечение */
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Возврат к начальному свечению */
+    }
+}
+.battle-side {
+  position: fixed;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-side {
+  left: -50%;
+}
+
+.right-side {
+  right: -50%;
+}
+
+.gradient-left {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgb(255, 0, 0), transparent);
+}
+
+.gradient-right {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left, rgb(0, 0, 255), transparent);
+}
+
+.battle-mage {
+  max-height: 80%;
+  max-width: 80%;
+  z-index: 1000;
+}
+
+.slide-in-left {
+  animation: slideLeft 2s forwards;
+}
+
+.slide-in-right {
+  animation: slideRight 2s forwards;
+}
+
+@keyframes slideLeft {
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+.vs-text {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 64px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 10px black;
+  z-index: 1001;
+  opacity: 0;
+}
+
+.battle-mage {
+  scale: 4;
+}
+
+/* жизнь */
+.stat-bar {
+  width: 120px;
+  height: 16px;
+  background-color: #333;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 6px 0;
+  position: relative;
+}
+
+.stat-fill {
+  height: 100%;
+  transition: width 0.4s ease;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hp-fill {
+  background: linear-gradient(to right, #ff4d4d, #ff0000);
+}
+
+.mana-fill {
+  background: linear-gradient(to right, #66ccff, #0077ff);
+}
+/* Карта */
+/* Стиль для модального окна */
+.spell-modal {
+  display: none;  /* Скрыть модальное окно по умолчанию */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);  /* Черный полупрозрачный фон */
+  z-index: 1000;  /* Чтобы окно было поверх всего */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal-content {
+  transition: opacity 1s ease, transform 0.3s ease;
+  background-image:url(assets/bg_/module.avif);
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 500px;
+  text-align: center;
+  position: a;
+}
+
+.close-btn {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.spell-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+#spellName {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#spellDescription {
+  font-size: 16px;
+  margin: 15px 0;
+}
+
+p {
+  font-size: 16px;
+}
+.attack-effect {
+  position: absolute;
+  color: red;
+  font-size: 24px;
+  font-weight: bold;
+  transition: all 0.5s;
+  z-index: 100;
+}
+
+.animate {
+  transform: translateY(-50px);
+  opacity: 0;
+}
