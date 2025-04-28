@@ -113,7 +113,7 @@ function showElementCards() {
   for (let i = 0; i < 12; i++) {
     const elementCard = document.createElement("div");
     elementCard.classList.add("element-card");
-    elementCard.innerHTML = `<img src="/assets/card/CardBack.png" alt="element-card">`;
+    elementCard.innerHTML = `<img src="https://firebasestorage.googleapis.com/v0/b/magic-battle-76d64.firebasestorage.app/o/CardBack.png?alt=media&token=ec4c4f2d-04a3-46c6-a41f-21e8725a5bd5" alt="element-card">`;
 
     // Добавляем обработчик клика
     elementCard.addEventListener("click", async () => {
